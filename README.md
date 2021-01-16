@@ -12,7 +12,7 @@ The [Comparative Campaign Dynamics Project](https://www.mzes.uni-mannheim.de/d7/
 |The Netherlands  | 2010, 2012 | | |
 |Poland | 2007, 2011 | | |
 |Portugal | 2009, 2011 | | |
-|Spain |  | | |
+|Spain | 2008, 2011  | | |
 |Sweden |2010, 2014 | | |
 |United Kingdom | 2005, 2010, 2015 | The Guardian| The Telegraph |
 
