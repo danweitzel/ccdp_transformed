@@ -4,11 +4,11 @@
 <img src="figures/countries.png" width="250">
 </p>
 
-The [Comparative Campaign Dynamics Project](https://www.mzes.uni-mannheim.de/d7/en/datasets/comparative-campaign-dynamics-dataset) offers an amazing data set about the statements political parties make about themselves (subject statements) and other parties (other statements) during election campaigns (Classified as the one month period before an election except for Portugal where it is the two weeks period). The data set includes campaign statements by parties in two elections each in ten European countries. 
+The [Comparative Campaign Dynamics Project](https://www.mzes.uni-mannheim.de/d7/en/datasets/comparative-campaign-dynamics-dataset) offers an amazing data set about the statements political parties make about themselves (*subject statements*) and other parties (*other statements*) during election campaigns (Classified as the one month period before an election except for Portugal where it is the two weeks period). The data set includes campaign statements by parties in two elections each in ten European countries. Coded are all election-relevant statements that were reported in the largest left-leaning and right-leaning daily broadsheet newspapers in a country. 
 
-In this repository I provide code that cleans and transforms the data that the CCDP makes publicly available on its website and makes it ready for social science analysis of party issue or valence discussions during election campaigns. Feel free to use the R script and processed data for your academic research. Issues in the code or data set can be reported through the GitHub page. 
+The CCDP provides data sets on its website that has newspaper articles about political parties as the unit of observation. Since the unit of analysis in social science research is rarely a newspaper article the data needs to be recoded for most projects. In this repository I provide code that cleans and transforms the data that the CCDP makes publicly available on its website to allow for social science analysis of party issue or valence discussions during election campaigns. I also add the widely used party identifier codes from the Comparative Manifesto Project so researchers can easily integrate ideological positions and election results for their analysis. Feel free to use the R script and processed data for your academic research. Issues in the code or data set can be reported through the GitHub page. 
 
-**If you use the data set please use the following data citation:**
+**If you use the data set please add the following data citation to your manuscript:**
 
 *Debus, Marc, Zeynep Somer-Topcu, and Margit Tavits. 2018. Comparative Campaign Dynamics Dataset. Mannheim: Mannheim Centre for European Social Research, University of Mannheim.*
 
