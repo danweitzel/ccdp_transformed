@@ -5,15 +5,15 @@ The [Comparative Campaign Dynamics Project](https://www.mzes.uni-mannheim.de/d7/
 
 | Country  |  Elections | Left-leaning Newspaper  | Right-leaning Newspaper  |
 |---|---|---|---|
-|Czech Republic | | | |
-|Denmark | | | |
+|Czech Republic |2010, 2013 | | |
+|Denmark |2007, 2011 | | |
 |Germany |2009, 2013 | Die Sueddeutsche | Frankfurter Allgemeine Zeitung |
-|Hungary  | | | |
-|The Netherlands  | | | |
-|Poland | | | |
-|Portugal | | | |
-|Spain | | | |
-|Sweden | | | |
+|Hungary  | 2006, 2010| | |
+|The Netherlands  | 2010, 2012 | | |
+|Poland | 2007, 2011 | | |
+|Portugal | 2009, 2011 | | |
+|Spain |  | | |
+|Sweden |2010, 2014 | | |
 |United Kingdom | 2005, 2010, 2015 | The Guardian| The Telegraph |
 
 **If you use the data set please use the following data citation:**
