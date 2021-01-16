@@ -1,5 +1,7 @@
 # Comparative Campaign Dynamics Project Data Transformation
 
+![Coutries included in the CCDP Project.](./images/countries.png "Coutries included in the CCDP Project.")
+
 The [Comparative Campaign Dynamics Project](https://www.mzes.uni-mannheim.de/d7/en/datasets/comparative-campaign-dynamics-dataset) offers an amazing data set about the statements political parties make about themselves (subject statements) and other parties (other statements) during election campaigns (Classified as the one month period before an election except for Portugal where it is the two weeks period). The data set includes campaign statements by parties in two elections each in ten European countries. 
 
 In this repository I provide code that cleans and transforms the data that the CCDP makes publicly available on its website and makes it ready for social science analysis of party issue or valence discussions during election campaigns. Feel free to use the R script and processed data for your academic research. Issues in the code or data set can be reported through the GitHub page. 
