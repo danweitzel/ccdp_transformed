@@ -32,6 +32,7 @@ The self data set and other data set hold counts of issue, issue direction, issu
 
 
 **Variables in the other statements data set:**
+
 The self statement data set includes only statements political parties made about themselves. The other statements data set includes all statements political parties a) made about other political parties and b) received from other parties. The variables in this data set are coded identically to the ``self_`` variables explained above. The variables that count the number of statements a political party (the subject) makes about another political parties (other) all start with ``other_``. In addition to that the data set also includes variables that count the statements that the subject received from the other party. These variables are again identically coded as the ``self_`` variables explained above. In order to allow easy identification and subsetting of the data set all of them start with ``rec_other_``.
 
 
