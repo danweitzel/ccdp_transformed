@@ -21,13 +21,18 @@ The CCDP provides data sets on its website that has newspaper articles about pol
 3. The ``data_processed`` folder holds three csv's that count the issue statements, issue-direction statements, issue-valence statements, and valence statements of political parties in elections. The [self_statements.csv](./data_processed/self_statements.csv) includes counts of all statements a political party made about itself. The [other_statements.csv](./data_processed/other_statements.csv) includes all statements a party made about and received from other political parties. The [combined_statements.csv](./data_processed/combined_statements.csv) combines the self_statements.csv and the other_statements.csv. The R script also includes code that will generate Stata 13 .dta files that can be uncommented and used.
 
 ## Variables in the data sets
+The self data set and other data set hold counts of issue, issue direction, issue valence, and valence statements of political parties. The [CCDP codebook](http://www.mzes.uni-mannheim.de/publications/wp/wp-167.pdf) lists the meaning of the numeric issue codes on page 15. The data sets that I am providing use these numeric issue codes. 
+
+**Variables in the self statements data set:**
+
+1. ``self_issue_#`` refers to counts of issue statements a party made about itself during the election. ``#`` refers to the issue code in the CCDP codebook. 
+2. ``self_issue_#_direction`` refers to issue statements a party made about itself during an election and includes the direction of that issue statement. As before ``#`` refers to the issue code in the CCDP codebook. ``direction`` refers to the positive (pos), negative (neg), neutral (neu) or contradictory (con) dorection that the statement took. 
+3. ``self_issue_val_#_type_direction`` refers to counts of issue-related valence statements a political party made about itself. ``self_issue_val`` indicates that it is a self issue-related valence statement. ``#`` refers to the issue code in the CCDP codebook, ``type`` refers to the type of valence statement [party honesty (phon), party competence (pcom), party unity (puni), leader honesty (lhon), leader competence (lcom), leader character (lcha), and other (other)], and the ``direction`` can be positive (pos), negative (neg), neutral (neu), or contradictory (con) direction.
+4. ``self_val_direction`` counts the valence statements a party makes about itself. Parties can not only make valence statementsabout themselves related to issues but also just valence statements about themselves. These are coded as ``self_val_direction`` variables. ``self_val_`` refers to all statements by a party about its own nonissue related valence and ``direction`` is the direction of that statement, which can be positive (pos), negative (neg), or neutral.
 
 
-The data sets in this repository provide the following data about party statements:
-1. Issue position statements by parties about themselves and other parties.
-2. Issue direction statements by parties about themselves and other parties.
-3. Issue valence statements by parties about themselves and other parties.
-4. Valence statements by parties about themselves and other parties.
+**Variables in the other statements data set:**
+The self statement data set includes only statements political parties made about themselves. The other statements data set includes all statements political parties a) made about other political parties and b) received from other parties. The variables in this data set are coded identically to the ``self_`` variables explained above. The variables that count the number of statements a political party (the subject) makes about another political parties (other) all start with ``other_``. In addition to that the data set also includes variables that count the statements that the subject received from the other party. These variables are again identically coded as the ``self_`` variables explained above. In order to allow easy identification and subsetting of the data set all of them start with ``rec_other_``.
 
 
 ## Countries, Elections, and Newspapers in the CCDP Data
