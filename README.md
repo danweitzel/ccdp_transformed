@@ -21,6 +21,8 @@ The CCDP provides data sets on its website that has newspaper articles about pol
 3. The ``data_processed`` folder holds three csv's that count the issue statements, issue-direction statements, issue-valence statements, and valence statements of political parties in elections. The [self_statements.csv](./data_processed/self_statements.csv) includes counts of all statements a political party made about itself. The [other_statements.csv](./data_processed/other_statements.csv) includes all statements a party made about and received from other political parties. The [combined_statements.csv](./data_processed/combined_statements.csv) combines the self_statements.csv and the other_statements.csv. The R script also includes code that will generate Stata 13 .dta files that can be uncommented and used.
 
 ## Variables in the data sets
+
+
 The data sets in this repository provide the following data about party statements:
 1. Issue position statements by parties about themselves and other parties.
 2. Issue direction statements by parties about themselves and other parties.
