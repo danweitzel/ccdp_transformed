@@ -18,10 +18,9 @@ The CCDP provides data sets on its website that has newspaper articles about pol
 ## Content
 1. The [ccd_crosswalk.csv](./data_raw/ccd_crosswalk.csv) file in the ``data_raw`` folder matches the Comparative Campaign Dynamics Project (CCDP) party identifier codes with the more widely used party identifier codes from the Comparative Manifesto Project (CMP). Researchers can use the CMP to extend the data set with ideological positions, election results, seat shares and more. 
 2. The [ccdp_transformation.R](./scripts/ccdp_transformation.R) script in the ``scripts`` folder downloads the CCDP data and transforms it into three data sets that have parties in elections as the unit of observation. The script is annotated and each transformation is explained. Cleaning and coding are conducted such that they should be straightforward to understand and the R script works as a codebook. 
-3. The ``data_processed`` folder holds three csv's. 
+3. The ``data_processed`` folder holds three csv's that count the issue statements, issue-direction statements, issue-valence statements, and valence statements of political parties in elections. The [self_statements.csv](./data_processed/self_statements.csv) includes counts of all statements a political party made about itself. The [other_statements.csv](./data_processed/other_statements.csv) includes all statements a party made about and received from other political parties. The [combined_statements.csv](./data_processed/combined_statements.csv) combines the self_statements.csv and the other_statements.csv. The R script also includes code that will generate Stata 13 .dta files that can be uncommented and used.
 
-The R script also includes code that will generate Stata 13 .dta files that can be uncommented and used.
-
+## Variables in the data sets
 The data sets in this repository provide the following data about party statements:
 1. Issue position statements by parties about themselves and other parties.
 2. Issue direction statements by parties about themselves and other parties.
