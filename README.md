@@ -27,6 +27,12 @@ The CCDP provides data sets on its website that has newspaper articles about pol
 |United Kingdom | 2005, 2010, 2015 | The Guardian| The Daily Telegraph |
 
 
+## Content
+1. The [ccd_crosswalk.csv](./data_raw/ccd_crosswalk.csv) file in the ``data_raw`` folder matches the Comparative Campaign Dynamics Project party identifier codes with the more widely used party identifier codes from the Comparative Manifesto Project (CMP). Researchers can use the CMP to extend the data set with ideological positions, election results, seat shares and more. 
+2. The [ccdp_transformation.R](./scripts/ccdp_transformation.R) script in the ``scripts`` folder downloads the CCDP data and transforms it into three data sets that have parties in elections as the unit of observation. The script is annotated and each transformation is explained. Cleaning and coding are conducted such that they are easily understandanle and the R script works as a codebook. 
+3. The ``data_processed`` folder holds three csv's. 
+
+The R script also includes code that will generate Stata 13 .dta files that can be uncommented and used.
 
 The data sets in this repository provide the following data about party statements:
 1. Issue position statements by parties about themselves and other parties.
@@ -34,8 +40,5 @@ The data sets in this repository provide the following data about party statemen
 3. Issue valence statements by parties about themselves and other parties.
 4. Valence statements by parties about themselves and other parties.
 
-In this respository I provide the code to transform the raw CCDP data set to a data set ready for analysis by social scientists. 
 
-## Content
-1. Scripts folder: Holds the script that downloads the CCDP data and transforms it to party election and party-pair election data 
-2. 
+]
