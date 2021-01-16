@@ -1,0 +1,162 @@
+country,cmp_country_name,ccode,year,cp_party,cp_name,cmp_code,parlgov_code,cses_code,poll_pid,miguel_code,cses_imd
+CZ,Czech Republic,82,2010,1,Czech Social Democratic Party – CSSD,82320,789,,,CSSD,2030001
+CZ,Czech Republic,82,2010,2,Civic Democratic Party – ODS,82413,829,,,ODS,2030002
+CZ,Czech Republic,82,2010,3,Communist Party of Bohemia and Moravia – KSCM,82220,1173,,,KSCM,2030004
+CZ,Czech Republic,82,2010,4,Christian Democratic Party – Czechoslovak People's Party – KDU–CSL,82523,1245,,,KDU-CSL,2030003
+CZ,Czech Republic,82,2010,5,TOP 09,82530,2,,,TOP09,2030010
+CZ,Czech Republic,82,2010,6,Public Affairs – VV,82952,336,,,VV,2030014
+CZ,Czech Republic,82,2010,9,The government (CSSD + ODS + SZ),"82320, 82413, 82110",,,,,
+CZ,Czech Republic,82,2013,1,Czech Social Democratic Party – CSSD,82320,789,,,CSSD,2030001
+CZ,Czech Republic,82,2013,2,Civic Democratic Party – ODS,82413,829,,,ODS,2030002
+CZ,Czech Republic,82,2013,3,Communist Party of Bohemia and Moravia – KSCM,82220,1173,,,KSCM,2030004
+CZ,Czech Republic,82,2013,4,Christian Democratic Party – Czechoslovak People's Party – KDU–CSL,82523,1245,,,KDU-CSL,2030003
+CZ,Czech Republic,82,2013,5,TOP 09,82530,2,,,TOP09,2030010
+CZ,Czech Republic,82,2013,7,ANO 2011,82430,2263,,,ANO,2030006
+CZ,Czech Republic,82,2013,8,Tomio Okamura's Dawn of Direct Democracy,82720,2262,,,USVIT-CC,2030013
+CZ,Czech Republic,82,2013,9,The government (ODS + TOP 09 + VV/LIDEM),"82413, 82530, 82952","2,5",,,,
+DK,Denmark,13,2007,1,Venstre [Liberals],13420,1605,,3,Liberals,2080002
+DK,Denmark,13,2007,2,Socialdemokraterne [Social Democrats],13320,1629,,1,SocialDem,2080001
+DK,Denmark,13,2007,3,Dansk Folkeparti [Danish People's Party],13720,1418,,11,DanishPeople,2080010
+DK,Denmark,13,2007,4,Socialistik Folkeparti [Socialist People's Party],13230,1644,,5,SocialistPeople,2080004
+DK,Denmark,13,2007,5,Det Konservative Folkeparti [Conservatives],13620,590,,9,DK_Conservatives,2080007
+DK,Denmark,13,2007,6,Det Radikale Venstre [Social Liberals],13410,211,,2,SocialLiberals,2080006
+DK,Denmark,13,2007,7,Enhedslisten [Red/Green Alliance],13229,306,,10,RedGreenAlliance,2080005
+DK,Denmark,13,2007,8,Ny Alliance [New Alliance],13001,376,,12,LiberalAlliance,2080009
+DK,Denmark,13,2007,10,The government (Venstre and Det Konservative Folkeparti as a whole),"13420, 13620",,,,,
+DK,Denmark,13,2011,1,Venstre [Liberals],13420,1605,,3,Liberals,2080002
+DK,Denmark,13,2011,2,Socialdemokraterne [Social Democrats],13320,1629,,1,SocialDem,2080001
+DK,Denmark,13,2011,3,Dansk Folkeparti [Danish People's Party],13720,1418,,11,DanishPeople,2080010
+DK,Denmark,13,2011,4,Socialistik Folkeparti [Socialist People's Party],13230,1644,,5,SocialistPeople,2080004
+DK,Denmark,13,2011,5,Det Konservative Folkeparti [Conservatives],13620,590,,9,DK_Conservatives,2080007
+DK,Denmark,13,2011,6,Det Radikale Venstre [Social Liberals],13410,211,,2,SocialLiberals,2080006
+DK,Denmark,13,2011,7,Enhedslisten [Red/Green Alliance],13229,306,,10,RedGreenAlliance,2080005
+DK,Denmark,13,2011,9,Liberal Alliance [Liberal Alliance],13001,376,,12,LiberalAlliance,2080009
+DK,Denmark,13,2011,10,The government (Venstre and Det Konservative Folkeparti as a whole),"13420, 13620",,,,,
+DE,Germany,41,2009,1,CDU,,808,,,,2760002
+DE,Germany,41,2009,2,CSU,,1180,,,,2760003
+DE,Germany,41,2009,3,CDU/CSU (as a unitary actor),41521,1727,,1,CDU_CSU,2760001
+DE,Germany,41,2009,4,SPD,41320,558,,2,SPD,2760004
+DE,Germany,41,2009,5,FDP,41420,543,,4,FDP,2760006
+DE,Germany,41,2009,6,Buendnis 90/Die Gruenen,41113,772,,3,Bluendnis90,2760005
+DE,Germany,41,2009,7,Die Linke,41223,791,,5,DieLinke,2760007
+DE,Germany,41,2009,10,The government (CDU + CSU + SPD),"41521, 41320",,,,,
+DE,Germany,41,2013,1,CDU,,808,,,,2760002
+DE,Germany,41,2013,2,CSU,,1180,,,,2760003
+DE,Germany,41,2013,3,CDU/CSU (as a unitary actor),41521,1727,,1,CDU_CSU,2760001
+DE,Germany,41,2013,4,SPD,41320,558,,2,SPD,2760004
+DE,Germany,41,2013,5,FDP,41420,543,,4,FDP,2760006
+DE,Germany,41,2013,6,Buendnis 90/Die Gruenen,41113,772,,3,Bluendnis90,2760005
+DE,Germany,41,2013,7,Die Linke,41223,791,,5,DieLinke,2760007
+DE,Germany,41,2013,8,AfD ,41953,2253,,,AfD,2760010
+DE,Germany,41,2013,9,PIRATEN,41952,865,,,PIRATEN,2760014
+DE,Germany,41,2013,10,The government (CDU + CSU + FDP),"41521, 41420",,,,,
+HU,Hungary,86,2006,1,Fidesz,,,,,Fidesz,
+HU,Hungary,86,2006,2,KDNP,,,,,KDNP,3480032
+HU,Hungary,86,2006,3,Fidesz–KDNP alliance as a whole,86421,437,,1,,
+HU,Hungary,86,2006,4,MSZP (Hungarian Socialist Party),86220,1591,,2,MSZP,3480001
+HU,Hungary,86,2006,5,MIEP–Jobbik (MIEP–Jobbik Third Way Alliance of Parties),,,,3,,
+HU,Hungary,86,2006,6,SZDSZ (Alliance of Free Democrats) ,86422,1426,,,SZDSZ,3480008
+HU,Hungary,86,2006,7,MDF (Hungarian Democratic Forum) ,86521,546,,4,MDF,3490007
+HU,Hungary,86,2006,9,The government (MSZP–SZDSZ),"86220, 86422",,,,,
+HU,Hungary,86,2010,1,Fidesz,,,,,Fidesz,
+HU,Hungary,86,2010,2,KDNP,,,,,KDNP,3480032
+HU,Hungary,86,2010,3,Fidesz–KDNP alliance as a whole,86421,437,,1,,
+HU,Hungary,86,2010,4,MSZP (Hungarian Socialist Party),86220,1591,,2,MSZP,3480001
+HU,Hungary,86,2010,5,Jobbik,86710,600,,3,Jobbik,3480003
+HU,Hungary,86,2010,9,The government (MSZP),,,,,MSZP,3480001
+PL,Poland,92,2007,1,Law and Justice (PiS),92436,528,,2,PiS,6160002
+PL,Poland,92,2007,2,Civic Platform (PO),92435,512,,1,PO,6160001
+PL,Poland,92,2007,3,Left and Democrats (LiD),92021,180,,3,LiD,6160020
+PL,Poland,92,2007,4,Polish Peasant's Party (PSL),92811,664,,4,PSL,6160003
+PL,Poland,92,2007,5,League of Polish Families (LPR),92713,987,,,LPR,6160014
+PL,Poland,92,2007,6,Self–Defense of the Republic of Poland (SRP) ,92622,207,,,SRP,6160024
+PL,Poland,92,2007,9,The government (PiS + SRP + LPR),"92436, 92622, 92713",,,,,
+PL,Poland,92,2011,1,Law and Justice (PiS),92436,528,,2,PiS,6160002
+PL,Poland,92,2011,2,Civic Platform (PO),92435,512,,1,PO,6160001
+PL,Poland,92,2011,3,Left and Democrats (LiD),92021,180,,3,LiD,6160020
+PL,Poland,92,2011,4,Polish Peasant's Party (PSL),92811,664,,4,PSL,6160003
+PL,Poland,92,2011,7,Palikot’s Movement (RP),92440,1945,,6,RP,6160017
+PL,Poland,92,2011,8,Poland Comes First (PJN),,1679,,5,PJN,6160016
+PL,Poland,92,2011,9,The government (PO + PSL),"92435, 92811",,,,,
+PO,Portugal,35,2009,1,Partido Socialista (PS),35311,725,,2,PS,6200002
+PO,Portugal,35,2009,2,Partido Social Democrata (PSD),35313,1273,,1,PSD,6200001
+PO,Portugal,35,2009,3,Coligacao Democratica Unitaria (CDU),35229,1295,,4,PCP,6200008
+PO,Portugal,35,2009,4,Bloco de Esquerda,35211,557,,5,BE,6200006
+PO,Portugal,35,2009,5,CDS – Partido Popular (CDS–PP),35520,251,,3,CDS,6200003
+PO,Portugal,35,2011,1,Partido Socialista (PS),35311,725,,2,PS,6200002
+PO,Portugal,35,2011,2,Partido Social Democrata (PSD),35313,1273,,1,PSD,6200001
+PO,Portugal,35,2011,3,Coligacao Democratica Unitaria (CDU),35229,1295,,4,PCP,6200008
+PO,Portugal,35,2011,4,Bloco de Esquerda,35211,557,,5,BE,6200006
+PO,Portugal,35,2011,5,CDS – Partido Popular (CDS–PP),35520,251,,3,CDS,6200003
+ES,Spain,33,2008,1,PSOE (Socialist Workers' Party),33320,902,,2,PSOE,7240001
+ES,Spain,33,2008,2,PP (People's Party),33610,645,,1,PP,7240002
+ES,Spain,33,2008,3,IU (United Left),33220,118,,3,IU,7240004
+ES,Spain,33,2008,4,CiU (Convergence & Union),33611,894,,5,CiU,7240003
+ES,Spain,33,2008,5,ERC (Republican Left of Catalonia),33905,757,,6,ERC,7240009
+ES,Spain,33,2008,6,EAJ/PNV (Basque Nationalist Party),33902,1361,,,EAJ_PNV,7240005
+ES,Spain,33,2008,7,"UPyD (Union, Progress, and Democracy)",33440,551,,4,UPyD,7240012
+ES,Spain,33,2011,1,PSOE (Socialist Workers' Party),33320,902,,2,PSOE,7240001
+ES,Spain,33,2011,2,PP (People's Party),33610,645,,1,PP,7240002
+ES,Spain,33,2011,3,IU-LV (Plural Left),33220,118,,3,IU,7240004
+ES,Spain,33,2011,4,CiU (Convergence & Union),33611,894,,5,CiU,7240003
+ES,Spain,33,2011,5,ERC (Republican Left of Catalonia),33905,757,,6,ERC,7240009
+ES,Spain,33,2011,6,EAJ/PNV (Basque Nationalist Party),33902,1361,,,EAJ_PNV,7240005
+ES,Spain,33,2011,7,"UPyD (Union, Progress, and Democracy)",33440,551,,4,UPyD,7240012
+SV,Sweden,11,2010,1,Left party (v),11220,882,,6,V,7520007
+SV,Sweden,11,2010,2,Green party (mp),11110,1154,,7,Mp,7520005
+SV,Sweden,11,2010,3,Social democratic party (s),11320,904,,5,S,7520001
+SV,Sweden,11,2010,4,Center party (c),11810,1461,,3,C,7520006
+SV,Sweden,11,2010,5,Liberal party (fp),11420,892,,2,Fp,7520003
+SV,Sweden,11,2010,6,Moderate party (m),11620,657,,1,M,7520002
+SV,Sweden,11,2010,7,Christian democratic party (kd),11520,282,,4,Kd,7520004
+SV,Sweden,11,2010,8,The Sweden democrats (sd),11710,1546,,8,Sd,7520008
+SV,Sweden,11,2010,9,Feminist initiative (fi),,1521,,,Fi,7520009
+SV,Sweden,11,2010,10,Red–green alliance,,,,,RedGreen,
+SV,Sweden,11,2010,11,"The government (Moderate party M, Center party C, Liberal party FP, Christian democratic party KD)","11620, 11810, 11420, 11520",,,,,
+SV,Sweden,11,2014,1,Left party (v),11220,882,,6,V,7520007
+SV,Sweden,11,2014,2,Green party (mp),11110,1154,,7,Mp,7520005
+SV,Sweden,11,2014,3,Social democratic party (s),11320,904,,5,S,7520001
+SV,Sweden,11,2014,4,Center party (c),11810,1461,,3,C,7520006
+SV,Sweden,11,2014,5,Liberal party (fp),11420,892,,2,Fp,7520003
+SV,Sweden,11,2014,6,Moderate party (m),11620,657,,1,M,7520002
+SV,Sweden,11,2014,7,Christian democratic party (kd),11520,282,,4,Kd,7520004
+SV,Sweden,11,2014,8,The Sweden democrats (sd),11710,1546,,8,Sd,7520008
+SV,Sweden,11,2014,9,Feminist initiative (fi),,1521,,,Fi,7520009
+SV,Sweden,11,2014,10,Red–green alliance,,,,,RedGreen,
+SV,Sweden,11,2014,11,"The government (Moderate party M, Center party C, Liberal party FP, Christian democratic party KD)","11620, 11810, 11420, 11520",,,,,
+NL,The Netherlands,22,2010,1,PvdA,22320,742,,1,PvDA,5280002
+NL,The Netherlands,22,2010,2,CDA,22521,235,,6,CDA,5280001
+NL,The Netherlands,22,2010,3,VVD,22420,1409,,2,VVD,5280003
+NL,The Netherlands,22,2010,4,D66,22330,345,,8,D66,5280004
+NL,The Netherlands,22,2010,5,SP,22220,357,,11,SP,5280006
+NL,The Netherlands,22,2010,6,PVV,22722,1501,,13,PVV,5280009
+NL,The Netherlands,22,2010,7,ChristenUnie,22526,1206,,5,CU,5280008
+NL,The Netherlands,22,2010,8,GroenLinks,22110,756,,7,GL,5280005
+NL,The Netherlands,22,2010,9,PvdD (Party for the Animals),22951,990,,,PvdD,5280013
+NL,The Netherlands,22,2010,11,The government (CDA + PvdA + CU),"22521, 22320, 22526",,,,,
+NL,The Netherlands,22,2012,1,PvdA,22320,742,,1,PvDA,5280002
+NL,The Netherlands,22,2012,2,CDA,22521,235,,6,CDA,5280001
+NL,The Netherlands,22,2012,3,VVD,22420,1409,,2,VVD,5280003
+NL,The Netherlands,22,2012,4,D66,22330,345,,8,D66,5280004
+NL,The Netherlands,22,2012,5,SP,22220,357,,11,SP,5280006
+NL,The Netherlands,22,2012,6,PVV,22722,1501,,13,PVV,5280009
+NL,The Netherlands,22,2012,7,ChristenUnie,22526,1206,,5,CU,5280008
+NL,The Netherlands,22,2012,8,GroenLinks,22110,756,,7,GL,5280005
+NL,The Netherlands,22,2012,10,50PLUS,22953,2109,,,50PLUS,
+NL,The Netherlands,22,2012,11,The government (VVD + CDA),"22420, 22521",,,,,
+UK,United Kingdom,51,2005,1,Labour Party,51320,1556,,2,Labour,8260002
+UK,United Kingdom,51,2005,2,Liberal Democratic Party,51421,659,,3,LibDem,8260003
+UK,United Kingdom,51,2005,3,Conservative Party,51620,773,,1,Conservatives,8260001
+UK,United Kingdom,51,2010,1,Labour Party,51320,1556,,2,Labour,8260002
+UK,United Kingdom,51,2010,2,Liberal Democratic Party,51421,659,,3,LibDem,8260003
+UK,United Kingdom,51,2010,3,Conservative Party,51620,773,,1,Conservatives,8260001
+UK,United Kingdom,51,2015,1,Labour Party,51320,1556,,2,Labour,8260002
+UK,United Kingdom,51,2015,2,Liberal Democratic Party,51421,659,,3,LibDem,8260003
+UK,United Kingdom,51,2015,3,Conservative Party,51620,773,,1,Conservatives,8260001
+UK,United Kingdom,51,2015,4,UKIP,51951,1272,,,UKIP,8260007
+UK,United Kingdom,51,2015,5,The Scottish National Party,51902,1284,,,SNP,8260004
+UK,United Kingdom,51,2015,6,Government,"51620, 51421",,,,,
+UK,United Kingdom,51,2005,4,UKIP,51951,1272,,,UKIP,8260007
+UK,United Kingdom,51,2005,5,The Scottish National Party,51902,1284,,,SNP,8260004
+UK,United Kingdom,51,2010,4,UKIP,51951,1272,,,UKIP,8260007
+UK,United Kingdom,51,2010,5,The Scottish National Party,51902,1284,,,SNP,8260004
