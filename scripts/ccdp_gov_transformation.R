@@ -547,7 +547,6 @@ df_combined <-
   df_other_transformed %>% 
   left_join(df_self_transformed) 
 
-
 ## Exporting the full data set of self and other statements
 #write_csv(df_combined, "data_processed/combined_statements_gov.csv")
 #save.dta13(df_combined, "data_processed/combined_statements_gov.dta")
