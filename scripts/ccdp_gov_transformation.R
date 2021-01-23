@@ -243,9 +243,9 @@ df_self_transformed <-
   filter(!str_detect(subject_name, 'gov')) %>% 
   dplyr::select(-c(subject_name, subject_cmp_code, subject_parlgov_code, subject_poll_id, subject_miguel_id, subject_cses_imd)) %>% 
   rbind(gov_subject_self) %>% 
-  group_by(country_code, country_name, year, subject_id) %>% 
-  summarise_all(funs(sum)) %>%
-  left_join(ccd_subjects)
+  group_by(country_code, ccode, country_name, year, subject_id) %>% 
+  summarise_all(funs(sum)) # %>%
+  #left_join(ccd_subjects)
 
 ## Exporting the self data set
 #write_csv(df_self_transformed, "data_processed/self_statements_gov.csv")
@@ -526,14 +526,14 @@ both_government_other <-
          other_id = as.numeric(other_id))
 
 
-df_other_transformed  <-
+df_other_transformed <-
   df_other_transformed  %>% 
   filter(!str_detect(subject_name, 'gov')) %>% 
   filter(!str_detect(other_name, 'gov')) %>% 
   dplyr::select(-c(subject_name, subject_cmp_code, subject_parlgov_code, subject_poll_id, subject_miguel_id, subject_cses_imd,
                    other_name, other_cmp_code, other_parlgov_code, other_poll_id, other_miguel_id, other_cses_imd)) %>% 
   rbind(gov_other, gov_subject_other, both_government_other) %>% 
-  group_by(country_code, country_name, year, subject_id, other_id) %>% 
+  group_by(country_code, ccode, country_name, year, subject_id, other_id) %>% 
   summarise_all(funs(sum)) %>%
   left_join(ccd_parties)
 
