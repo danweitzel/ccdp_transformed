@@ -1,12 +1,12 @@
 #####################################################################################
 ##
-##    File Name:        ccd_transformation.R
-##    Date:             2020-12-09
+##    File Name:        ccd_gov_transformation.R
+##    Date:             2021-01-20
 ##    Author:           Daniel Weitzel
 ##    Email:            daniel.weitzel@univie.ac.at
 ##    Webpage:          www.danweitzel.net
 ##    Purpose:          Issue, Issue valence, and valence counts for self and other data
-##    Date Used:        2020-01-04
+##    Date Used:        2021-01-23
 ##    Data Used:        "Self_03oct2016.dta" and "Other_03oct2016.dta"
 ##    Output File:      (none)
 ##    Data Output:      See end of file
@@ -38,6 +38,7 @@ df_other <- read.dta13("https://www.mzes.uni-mannheim.de/projekte/where_my_party
 ## The ccd_crosswalk.csv was manually coded
 
 ## Subject codes, this is the party making statements in the data
+
 ccd_subjects <- read_csv("data_raw/ccd_crosswalk.csv") %>% 
   rename(country_code = country, 
          country_name = cmp_country_name, 
@@ -48,10 +49,8 @@ ccd_subjects <- read_csv("data_raw/ccd_crosswalk.csv") %>%
          subject_poll_id = poll_pid, 
          subject_miguel_id = miguel_code, 
          subject_cses_imd = cses_imd) %>%
-  filter(!str_detect(subject_name, "govern")) %>% 
   dplyr::select(-c(cses_code)) %>% 
   filter(!(subject_id == 6 & country_code == "UK"))
-
 
 ## Other codes, this is the party receiving statements in the data
 ccd_other <- read_csv("data_raw/ccd_crosswalk.csv") %>% 
@@ -64,7 +63,6 @@ ccd_other <- read_csv("data_raw/ccd_crosswalk.csv") %>%
          other_poll_id = poll_pid, 
          other_miguel_id = miguel_code, 
          other_cses_imd = cses_imd) %>% 
-  filter(!str_detect(other_name, "govern")) %>% 
   dplyr::select(-c(cses_code)) %>% 
   filter(!(other_id == 6 & country_code == "UK"))
 
@@ -211,10 +209,49 @@ df_self_transformed <-
   mutate_if(is.numeric , replace_na, replace = 0) %>% 
   as.data.frame()
 
+## This takes all government codes and replaces them with the CP party codes of the parties in government
+## This means that any statement by or about a government party are added to the total of the counts of the parties in government
+gov_subject_self <- 
+  df_self_transformed %>% 
+  mutate(government_cp_code = ifelse(country_code == "DE" & year == 2009 & subject_id== 10, "3,4",
+                                     ifelse(country_code == "DE" & year == 2013 & subject_id== 10, "3,5",
+                                            ifelse(country_code == "CZ" & year == 2010	& subject_id== 9, "1,2",
+                                                   ifelse(country_code == "CZ" & year == 2013	& subject_id== 9, "2,5",
+                                                          ifelse(country_code == "DK" & year == 2007	& subject_id== 10, "1,5",
+                                                                 ifelse(country_code == "DK" & year == 2011	& subject_id== 10, "1,5",
+                                                                        ifelse(country_code == "HU" & year == 2006	& subject_id== 9, "4,6",
+                                                                               ifelse(country_code == "HU" & year == 2010	& subject_id== 9, "4",
+                                                                                      ifelse(country_code == "PL" & year == 2007	& subject_id== 9, "1,6,5",
+                                                                                             ifelse(country_code == "PL" & year == 2011	& subject_id== 9, "2,4",
+                                                                                                    ifelse(country_code == "SV" & year == 2010 & subject_id== 11, "6,4,5,7",
+                                                                                                           ifelse(country_code == "SV" & year == 2014	& subject_id== 11, "6,4,5,7",
+                                                                                                                  ifelse(country_code == "NL" & year == 2010	& subject_id== 11, "2,1",
+                                                                                                                         ifelse(country_code == "NL" & year == 2012	& subject_id== 11, "3,2",
+                                                                                                                                ifelse(country_code == "UK" & year == 2015	& subject_id== 6,	"3,2", NA)))))))))))))))) %>% 
+  ungroup() %>% 
+  filter(str_detect(subject_name, 'gov')) %>% 
+  select(-subject_id) %>% 
+  separate(government_cp_code, into = c("party1", "party2", "party3", "party4"), sep=",") %>% 
+  pivot_longer(cols = starts_with("party"), names_to = "label", values_to = "subject_id") %>% 
+  filter(!is.na(subject_id)) %>% 
+  select(-c(label, subject_name, subject_cmp_code, subject_parlgov_code, subject_poll_id, subject_miguel_id, subject_cses_imd)) %>% 
+  mutate(subject_id = as.numeric(subject_id))
+
+
+df_self_transformed <-
+  df_self_transformed %>% 
+  filter(!str_detect(subject_name, 'gov')) %>% 
+  dplyr::select(-c(subject_name, subject_cmp_code, subject_parlgov_code, subject_poll_id, subject_miguel_id, subject_cses_imd)) %>% 
+  rbind(gov_subject_self) %>% 
+  group_by(country_code, country_name, year, subject_id) %>% 
+  summarise_all(funs(sum)) %>%
+  left_join(ccd_subjects)
 
 ## Exporting the self data set
-#write_csv(df_self_transformed, "data_processed/self_statements.csv")
-#save.dta13(df_self_transformed, "data_processed/self_statements.dta")
+#write_csv(df_self_transformed, "data_processed/self_statements_gov.csv")
+#save.dta13(df_self_transformed, "data_processed/self_statements_gov.dta")
+
+rm(gov_subject_self)
 
 ################################
 # OTHER DATA SET - party (subject) speaking about another party (other)
@@ -379,9 +416,129 @@ df_other_transformed <-
   df_other_transformed %>% 
   left_join(df_other_transformed_receive)
 
+
+gov_other <- 
+  df_other_transformed %>% 
+  mutate(government_cp_code = ifelse(country_code == "DE" & year == 2009 & other_id == 10, "3,4",
+                                     ifelse(country_code == "DE" & year == 2013 & other_id == 10, "3,5",
+                                            ifelse(country_code == "CZ" & year == 2010	& other_id == 9, "1,2",
+                                                   ifelse(country_code == "CZ" & year == 2013	& other_id == 9, "2,5",
+                                                          ifelse(country_code == "DK" & year == 2007	& other_id == 10, "1,5",
+                                                                 ifelse(country_code == "DK" & year == 2011	& other_id == 10, "1,5",
+                                                                        ifelse(country_code == "HU" & year == 2006	& other_id == 9, "4,6",
+                                                                               ifelse(country_code == "HU" & year == 2010	& other_id == 9, "4",
+                                                                                      ifelse(country_code == "PL" & year == 2007	& other_id == 9, "1,6,5",
+                                                                                             ifelse(country_code == "PL" & year == 2011	& other_id == 9, "2,4",
+                                                                                                    ifelse(country_code == "SV" & year == 2010 & other_id == 11, "6,4,5,7",
+                                                                                                           ifelse(country_code == "SV" & year == 2014	& other_id == 11, "6,4,5,7",
+                                                                                                                  ifelse(country_code == "NL" & year == 2010	& other_id == 11, "2,1",
+                                                                                                                         ifelse(country_code == "NL" & year == 2012	& other_id == 11, "3,2",
+                                                                                                                                ifelse(country_code == "UK" & year == 2015	& other_id == 6,	"3,2", NA)))))))))))))))) %>% 
+  ungroup() %>% 
+  filter(str_detect(other_name, 'gov')) %>% 
+  filter(!str_detect(subject_name, 'gov')) %>% 
+  select(-other_id, subject_name, other_name) %>% 
+  separate(government_cp_code, into = c("party1", "party2", "party3", "party4"), sep=",") %>% 
+  pivot_longer(cols = starts_with("party"), names_to = "label", values_to = "other_id") %>% 
+  filter(!is.na(other_id)) %>% 
+  dplyr::select(-c(label, subject_name, subject_cmp_code, subject_parlgov_code, subject_poll_id, subject_miguel_id, subject_cses_imd,
+                   other_name, other_cmp_code, other_parlgov_code, other_poll_id, other_miguel_id, other_cses_imd)) %>% 
+  mutate(subject_id = as.numeric(subject_id),
+         other_id = as.numeric(other_id))
+
+
+gov_subject_other <- 
+  df_other_transformed %>% 
+  mutate(government_cp_code = ifelse(country_code == "DE" & year == 2009 & subject_id == 10, "3,4",
+                                     ifelse(country_code == "DE" & year == 2013 & subject_id == 10, "3,5",
+                                            ifelse(country_code == "CZ" & year == 2010	& subject_id == 9, "1,2",
+                                                   ifelse(country_code == "CZ" & year == 2013	& subject_id == 9, "2,5",
+                                                          ifelse(country_code == "DK" & year == 2007	& subject_id == 10, "1,5",
+                                                                 ifelse(country_code == "DK" & year == 2011	& subject_id == 10, "1,5",
+                                                                        ifelse(country_code == "HU" & year == 2006	& subject_id == 9, "4,6",
+                                                                               ifelse(country_code == "HU" & year == 2010	& subject_id == 9, "4",
+                                                                                      ifelse(country_code == "PL" & year == 2007	& subject_id == 9, "1,6,5",
+                                                                                             ifelse(country_code == "PL" & year == 2011	& subject_id == 9, "2,4",
+                                                                                                    ifelse(country_code == "SV" & year == 2010 & subject_id == 11, "6,4,5,7",
+                                                                                                           ifelse(country_code == "SV" & year == 2014	& subject_id == 11, "6,4,5,7",
+                                                                                                                  ifelse(country_code == "NL" & year == 2010	& subject_id == 11, "2,1",
+                                                                                                                         ifelse(country_code == "NL" & year == 2012	& subject_id == 11, "3,2",
+                                                                                                                                ifelse(country_code == "UK" & year == 2015	& subject_id == 6,	"3,2", NA)))))))))))))))) %>% 
+  ungroup() %>% 
+  filter(!str_detect(other_name, 'gov')) %>% 
+  filter(str_detect(subject_name, 'gov')) %>% 
+  select(-subject_id, subject_name, other_name) %>% 
+  separate(government_cp_code, into = c("party1", "party2", "party3", "party4"), sep=",") %>% 
+  pivot_longer(cols = starts_with("party"), names_to = "label", values_to = "subject_id") %>% 
+  filter(!is.na(subject_id)) %>% 
+  dplyr::select(-c(label, subject_name, subject_cmp_code, subject_parlgov_code, subject_poll_id, subject_miguel_id, subject_cses_imd,
+                   other_name, other_cmp_code, other_parlgov_code, other_poll_id, other_miguel_id, other_cses_imd)) %>% 
+  mutate(subject_id = as.numeric(subject_id),
+         other_id = as.numeric(other_id))
+
+
+
+both_government_other <- 
+  df_other_transformed %>% 
+  ungroup() %>% 
+  filter(str_detect(other_name, 'gov') & str_detect(subject_name, 'gov')) %>% 
+  mutate(government_cp_code_subject = ifelse(country_code == "DE" & year == 2009 & subject_id == 10, "3,4",
+                                             ifelse(country_code == "DE" & year == 2013 & subject_id == 10, "3,5",
+                                                    ifelse(country_code == "CZ" & year == 2010	& subject_id == 9, "1,2",
+                                                           ifelse(country_code == "CZ" & year == 2013	& subject_id == 9, "2,5",
+                                                                  ifelse(country_code == "DK" & year == 2007	& subject_id == 10, "1,5",
+                                                                         ifelse(country_code == "DK" & year == 2011	& subject_id == 10, "1,5",
+                                                                                ifelse(country_code == "HU" & year == 2006	& subject_id == 9, "4,6",
+                                                                                       ifelse(country_code == "HU" & year == 2010	& subject_id == 9, "4",
+                                                                                              ifelse(country_code == "PL" & year == 2007	& subject_id == 9, "1,6,5",
+                                                                                                     ifelse(country_code == "PL" & year == 2011	& subject_id == 9, "2,4",
+                                                                                                            ifelse(country_code == "SV" & year == 2010 & subject_id == 11, "6,4,5,7",
+                                                                                                                   ifelse(country_code == "SV" & year == 2014	& subject_id == 11, "6,4,5,7",
+                                                                                                                          ifelse(country_code == "NL" & year == 2010	& subject_id == 11, "2,1",
+                                                                                                                                 ifelse(country_code == "NL" & year == 2012	& subject_id == 11, "3,2",
+                                                                                                                                        ifelse(country_code == "UK" & year == 2015	& subject_id == 6,	"3,2", NA))))))))))))))),
+         government_cp_code_other = ifelse(country_code == "DE" & year == 2009 & other_id == 10, "3,4",
+                                           ifelse(country_code == "DE" & year == 2013 & other_id == 10, "3,5",
+                                                  ifelse(country_code == "CZ" & year == 2010	& other_id == 9, "1,2",
+                                                         ifelse(country_code == "CZ" & year == 2013	& other_id == 9, "2,5",
+                                                                ifelse(country_code == "DK" & year == 2007	& other_id == 10, "1,5",
+                                                                       ifelse(country_code == "DK" & year == 2011	& other_id == 10, "1,5",
+                                                                              ifelse(country_code == "HU" & year == 2006	& other_id == 9, "4,6",
+                                                                                     ifelse(country_code == "HU" & year == 2010	& other_id == 9, "4",
+                                                                                            ifelse(country_code == "PL" & year == 2007	& other_id == 9, "1,6,5",
+                                                                                                   ifelse(country_code == "PL" & year == 2011	& other_id == 9, "2,4",
+                                                                                                          ifelse(country_code == "SV" & year == 2010 & other_id == 11, "6,4,5,7",
+                                                                                                                 ifelse(country_code == "SV" & year == 2014	& other_id == 11, "6,4,5,7",
+                                                                                                                        ifelse(country_code == "NL" & year == 2010	& other_id == 11, "2,1",
+                                                                                                                               ifelse(country_code == "NL" & year == 2012 & other_id == 11, "3,2",
+                                                                                                                                      ifelse(country_code == "UK" & year == 2015	& other_id == 6,	"3,2", NA)))))))))))))))) %>% 
+  dplyr::select(-c(subject_id, other_id, subject_name, other_name)) %>% 
+  separate(government_cp_code_subject, into = c("party1", "party2", "party3", "party4"), sep=",") %>% 
+  pivot_longer(cols = starts_with("party"), names_to = "label", values_to = "subject_id") %>% 
+  filter(!is.na(subject_id)) %>% 
+  select(-label) %>% 
+  separate(government_cp_code_other, into = c("party1", "party2", "party3", "party4"), sep=",") %>% 
+  pivot_longer(cols = starts_with("party"), names_to = "label", values_to = "other_id") %>% 
+  filter(!is.na(other_id))  %>% 
+  dplyr::select(-c(label, subject_cmp_code, subject_parlgov_code, subject_poll_id, subject_miguel_id, subject_cses_imd,
+                   other_cmp_code, other_parlgov_code, other_poll_id, other_miguel_id, other_cses_imd)) %>% 
+  mutate(subject_id = as.numeric(subject_id),
+         other_id = as.numeric(other_id))
+
+
+df_other_transformed  <-
+  df_other_transformed  %>% 
+  filter(!str_detect(subject_name, 'gov')) %>% 
+  filter(!str_detect(other_name, 'gov')) %>% 
+  dplyr::select(-c(subject_name, subject_cmp_code, subject_parlgov_code, subject_poll_id, subject_miguel_id, subject_cses_imd,
+                   other_name, other_cmp_code, other_parlgov_code, other_poll_id, other_miguel_id, other_cses_imd)) %>% 
+  rbind(gov_other, both_government_other) %>% 
+  left_join(ccd_parties)
+
+
 ## Exporting the self data set
-#write_csv(df_other_transformed, "data_processed/other_statements.csv")
-#save.dta13(df_other_transformed, "data_processed/other_statements.dta")
+#write_csv(df_other_transformed, "data_processed/other_statements_gov.csv")
+#save.dta13(df_other_transformed, "data_processed/other_statements_gov.dta")
 
 ## Combining self and other data set
 df_combined <-
@@ -397,7 +554,7 @@ df_combined <-
 rm(ccd_other, ccd_parties, ccd_subjects, df_combined, df_other, df_other_transformed,
    df_self, df_self_transformed, other_issue, other_issue_direction, other_issue_valence,
    other_val, self_issue, self_issue_direction, self_issue_valence, self_val,
-   df_other_transformed_receive)
+   df_other_transformed_receive, both_government_other, gov_subject_other, gov_other)
 
 # fin
 
