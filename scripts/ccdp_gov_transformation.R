@@ -244,8 +244,10 @@ df_self_transformed <-
   dplyr::select(-c(subject_name, subject_cmp_code, subject_parlgov_code, subject_poll_id, subject_miguel_id, subject_cses_imd)) %>% 
   rbind(gov_subject_self) %>% 
   group_by(country_code, ccode, country_name, year, subject_id) %>% 
-  summarise_all(funs(sum)) # %>%
-  #left_join(ccd_subjects)
+  summarise_all(funs(sum)) %>%
+  #left_join(ccd_subjects) %>% 
+  as.data.frame()
+  
 
 ## Exporting the self data set
 #write_csv(df_self_transformed, "data_processed/self_statements_gov.csv")
@@ -535,7 +537,8 @@ df_other_transformed <-
   rbind(gov_other, gov_subject_other, both_government_other) %>% 
   group_by(country_code, ccode, country_name, year, subject_id, other_id) %>% 
   summarise_all(funs(sum)) %>%
-  left_join(ccd_parties)
+  left_join(ccd_parties) %>% 
+  as.data.frame()
 
 
 ## Exporting the self data set
@@ -545,7 +548,8 @@ df_other_transformed <-
 ## Combining self and other data set
 df_combined <-
   df_other_transformed %>% 
-  left_join(df_self_transformed) 
+  left_join(df_self_transformed) %>% 
+  as.data.frame()
 
 ## Exporting the full data set of self and other statements
 #write_csv(df_combined, "data_processed/combined_statements_gov.csv")
