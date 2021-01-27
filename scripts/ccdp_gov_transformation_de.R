@@ -1,18 +1,18 @@
 #####################################################################################
 ##
-##    File Name:        ccd_gov_transformation_germany.R
-##    Date:             2021-01-20
+##    File Name:        ccd_gov_transformation_de.R
+##    Date:             2021-01-27
 ##    Author:           Daniel Weitzel
 ##    Email:            daniel.weitzel@univie.ac.at
 ##    Webpage:          www.danweitzel.net
 ##    Purpose:          Issue, Issue valence, and valence counts for self and other data
-##    Date Used:        2021-01-23
+##    Date Used:        2021-01-27
 ##    Data Used:        "Self_03oct2016.dta" and "Other_03oct2016.dta"
 ##    Output File:      (none)
 ##    Data Output:      See end of file
 ##    Data Webpage:     (none)
 ##    Log File:         (none)
-##    Notes:            (none)
+##    Notes:            This file combines the CDU and CSU into the CDU/CSU
 ##
 #####################################################################################
 
@@ -25,6 +25,8 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, readstata13)
 
 ## Load the Comparative Campaign Dynamics Self and Other data from the website
+## This file is identical to the other two scripts in the folder. 
+## However on lines 33, 38-39, 60 and 75 I am making changes that combine CDU and CSU as one party.
 df_self <- read.dta13("https://www.mzes.uni-mannheim.de/projekte/where_my_party/data/Self_v1.dta") %>% 
   rename(country_code = country,
          year = year_month) %>% 
