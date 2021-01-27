@@ -1,6 +1,6 @@
 #####################################################################################
 ##
-##    File Name:        ccd_gov_transformation.R
+##    File Name:        ccd_gov_transformation_germany.R
 ##    Date:             2021-01-20
 ##    Author:           Daniel Weitzel
 ##    Email:            daniel.weitzel@univie.ac.at
@@ -27,10 +27,14 @@ pacman::p_load(tidyverse, readstata13)
 ## Load the Comparative Campaign Dynamics Self and Other data from the website
 df_self <- read.dta13("https://www.mzes.uni-mannheim.de/projekte/where_my_party/data/Self_v1.dta") %>% 
   rename(country_code = country,
-         year = year_month)
+         year = year_month) %>% 
+  mutate(subject = ifelse(country_code == "DE" & subject %in% c(1,2), 3, subject))
+
 df_other <- read.dta13("https://www.mzes.uni-mannheim.de/projekte/where_my_party/data/Other_v1.dta") %>% 
   rename(country_code = country,
-         year = year_month)
+         year = year_month) %>% 
+  mutate(subject = ifelse(country_code == "DE" & subject %in% c(1,2), 3, subject),
+         other = ifelse(country_code == "DE" & other %in% c(1,2), 3, other))
 
 ## Load the party crosswalk. This file includes country, year, CCDP party code, and CCDP party name
 ## The code below prepares a subject (the party speaking in a dyad) and an other (the party being targeted in a dyad) file
@@ -50,7 +54,8 @@ ccd_subjects <- read_csv("data_raw/ccd_crosswalk.csv") %>%
          subject_miguel_id = miguel_code, 
          subject_cses_imd = cses_imd) %>%
   dplyr::select(-c(cses_code)) %>% 
-  filter(!(subject_id == 6 & country_code == "UK"))
+  filter(!(subject_id == 6 & country_code == "UK")) %>% 
+  filter(!(subject_id %in% c(1,2) & country_code == "DE"))
 
 ## Other codes, this is the party receiving statements in the data
 ccd_other <- read_csv("data_raw/ccd_crosswalk.csv") %>% 
@@ -64,7 +69,8 @@ ccd_other <- read_csv("data_raw/ccd_crosswalk.csv") %>%
          other_miguel_id = miguel_code, 
          other_cses_imd = cses_imd) %>% 
   dplyr::select(-c(cses_code)) %>% 
-  filter(!(other_id == 6 & country_code == "UK"))
+  filter(!(other_id == 6 & country_code == "UK")) %>% 
+  filter(!(other_id %in% c(1,2) & country_code == "DE")) 
 
 ## Merging subject and other codes in order to generate a dyadic data set of party pairs
 ccd_parties <-
@@ -247,7 +253,7 @@ df_self_transformed <-
   summarise_all(funs(sum)) %>%
   #left_join(ccd_subjects) %>% 
   as.data.frame()
-  
+
 
 ## Exporting the self data set
 #write_csv(df_self_transformed, "data_processed/self_statements_gov.csv")
