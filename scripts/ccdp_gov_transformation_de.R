@@ -571,6 +571,3 @@ rm(ccd_other, ccd_parties, ccd_subjects, df_other, df_other_transformed,
 
 # fin
 
-check <-
-  df_combined %>% 
-  dplyr::select(country_code, ccode, year, subject_id, other_id, other_issue_1, starts_with("other_issue_1_"))
